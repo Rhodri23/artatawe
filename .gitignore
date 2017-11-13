@@ -23,3 +23,6 @@ hs_err_pid*
 
 # text files
 *.txt
+
+# Stupid mac
+*.DS_Store
