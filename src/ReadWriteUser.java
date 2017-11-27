@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
-import java.util.Scanner;
 
 /**
 * Simple description of the class, along with the author and verison.
@@ -29,7 +27,18 @@ class ReadWriteUser {
     }
 
     public static ArrayList<User> load() {
+        ArrayList<List<String>> file = FileManager.read(FILE_LOCATION);
         ArrayList<User> users = new ArrayList<User>();
+        System.out.println("Reading users...");
+
+        for(List<String> line : file) {
+            // One Line
+            System.out.println("User [Username=" + line.get(0) + ", firstName=" + line.get(1) + " , lastName=" + line.get(2) + "]");
+            for(String value: line) {
+                // Individual values
+                // System.out.println(value);
+            }
+        }
         return users;
     }
 }
