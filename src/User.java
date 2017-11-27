@@ -6,6 +6,22 @@
 * @version 1.0
 */
 
-class User {
-    // Class body
+public class User {
+    private String username;
+    private String firstName;
+    private String lastName;
+
+    User(String username, String firstName, String lastName) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public String toString() {
+        return String.format("User: " + this.username);
+    }
 }
