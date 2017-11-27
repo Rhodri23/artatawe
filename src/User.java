@@ -21,6 +21,14 @@ public class User {
         return this.username;
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
     public String toString() {
         return String.format("User: " + this.username);
     }
