@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -8,22 +9,27 @@ import java.util.Scanner;
 * @version 1.0
 */
 
-class ReadWriteUser extends FileManager {
-    public String fileLocation = "data/users.txt";
+class ReadWriteUser {
+    private static final String FILE_LOCATION = "data/users.csv";
 
-    public boolean save(User user){
+    public static boolean save(User user){
         System.out.println("Saving user: " + user);
-        super.store(user.getUsername(), fileLocation);
+        List<String> list = new ArrayList<>();
+        list.add(user.getUsername());
+        list.add(user.getFirstName());
+        list.add(user.getLastName());
+
+        try {
+            FileManager.store(FILE_LOCATION, list);
+        } catch(Exception e) {
+            System.out.println("An error occured while trying to save a user!");
+            return false;
+        }
         return true;
     }
 
-    public ArrayList<User> load() {
+    public static ArrayList<User> load() {
         ArrayList<User> users = new ArrayList<User>();
         return users;
-    }
-
-    private User load(Scanner line) {
-        User user = null;
-        return user;
     }
 }
