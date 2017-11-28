@@ -1,9 +1,4 @@
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.io.File;
+;
 import java.io.FileWriter;
 import java.util.Scanner;
 
@@ -17,10 +12,21 @@ public class FileManager {
     private static String checkFormat(String value) {
         String result = value;
         if (result.contains("\"")) {
-            //makes sure \ is escaped as it's a special char
+            // Makes sure " is escaped as it's a special char
             result = result.replace("\"", "\"\"");
         }
         return result;
+    }
+
+    public static File getOrMakeFile(String fileLocation) {
+        File file = new File(fileLocation);
+        File pdir = file.getParentFile();
+
+        if (! pdir.exists()){
+            System.out.println("Creating dir");
+            pdir.mkdirs();
+        }
+        return file;
     }
 
     public static void writeLine(Writer w, List<String> values) throws IOException {
@@ -36,17 +42,6 @@ public class FileManager {
         }
         sb.append("\n");
         w.append(sb.toString());
-    }
-
-    public static File getOrMakeFile(String fileLocation) {
-        File file = new File(fileLocation);
-        File pdir = file.getParentFile();
-
-        if (! pdir.exists()){
-            System.out.println("Creating dir");
-            pdir.mkdirs();
-        }
-        return file;
     }
 
     public static void store(String fileLocation, List<String> list) throws Exception {

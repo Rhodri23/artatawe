@@ -10,7 +10,7 @@ import java.util.List;
 class ReadWriteUser {
     private static final String FILE_LOCATION = "data/users.csv";
 
-    public static boolean save(User user){
+    public static void save(User user){
         System.out.println("Saving user: " + user);
         List<String> list = new ArrayList<>();
         list.add(user.getUsername());
