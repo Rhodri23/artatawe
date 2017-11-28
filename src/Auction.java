@@ -1,11 +1,52 @@
-// Import statements
+import java.util.ArrayList;
+import java.util.Date;
 
-/**
-* Simple description of the class, along with the author and verison.
-* @author Placeholder
-* @version 1.0
-*/
+public class Auction {
 
-class Auction {
-    // Class body
+	private ArrayList<Bid> bids = new ArrayList<Bid>();
+	private Artwork art;
+	private User owner;
+	private Integer maxBids;
+	private float reserve;
+	private long timeCreated;
+	private boolean completed = false;
+
+	Date date = new Date();
+
+	public Auction(Artwork art, Integer maxBids, float reserve, User owner) {
+
+		this.art = art;
+		this.maxBids = maxBids;
+		this.reserve = reserve;
+		this.owner = owner;
+		this.timeCreated = date.getTime();
+	}
+
+	public void setBid(Bid bid) {
+		bids.add(bid);
+	}
+
+	public Bid getBid(Integer i) {
+		return bids.get(i);
+	}
+
+	public float getReserve() {
+		return reserve;
+	}
+
+	public long getTime() {
+		return timeCreated;
+	}
+
+	public Artwork getArtwork() {
+		return art;
+	}
+
+	public User getUser() {
+		return owner;
+	}
+
+	public boolean checkCompleted() {
+		return completed;
+	}
 }
