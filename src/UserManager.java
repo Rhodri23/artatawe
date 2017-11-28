@@ -10,15 +10,10 @@ import java.util.ArrayList;
 public class UserManager {
     public int userCounter = 0;
     private List<User> users = new ArrayList<User>();
-    private ReadWriteUser userManager = new ReadWriteUser();
 
-    public boolean addUser(String username, String firstName, String lastName) {
+    public void addUser(String username, String firstName, String lastName) {
         User user = createUser(username, firstName, lastName);
-        if(!saveUser(user)) {
-            return false;
-        }
         users.add(user);
-        return true;
     }
 
     private User createUser(String username, String firstName, String lastName) {
@@ -26,8 +21,8 @@ public class UserManager {
         return user;
     }
 
-    private boolean saveUser(User user) {
-        return userManager.save(user);
+    private void saveUser(User user) {
+        ReadWriteUser.save(user);
     }
 
     public String toString() {

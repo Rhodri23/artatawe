@@ -21,9 +21,7 @@ class ReadWriteUser {
             FileManager.store(FILE_LOCATION, list);
         } catch(Exception e) {
             System.out.println("An error occured while trying to save a user!");
-            return false;
         }
-        return true;
     }
 
     public static ArrayList<User> load() {
